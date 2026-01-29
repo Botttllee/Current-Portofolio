@@ -61,12 +61,101 @@ document.querySelectorAll('.timeline-item').forEach(item => {
     observer.observe(item);
 });
 
-// Observe cards
-document.querySelectorAll('.card, .cert-item, .engagement-card').forEach(card => {
+// Observe cards and project cards
+document.querySelectorAll('.card, .cert-item, .engagement-card, .project-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(card);
+});
+
+// Project Card Expand/Collapse functionality
+document.querySelectorAll('.project-card:not(.project-placeholder)').forEach(card => {
+    const expandBtn = card.querySelector('.btn-expand');
+    const details = card.querySelector('.project-details');
+    const expandText = card.querySelector('.expand-text');
+    const expandIcon = card.querySelector('.expand-icon');
+    
+    if (expandBtn && details) {
+        expandBtn.addEventListener('click', () => {
+            const isExpanded = card.classList.contains('expanded');
+            
+            // Close all other expanded cards (optional - remove if you want multiple cards open)
+            document.querySelectorAll('.project-card.expanded').forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('expanded');
+                    const otherText = otherCard.querySelector('.expand-text');
+                    const otherIcon = otherCard.querySelector('.expand-icon');
+                    if (otherText) otherText.textContent = 'Show Details';
+                    if (otherIcon) otherIcon.textContent = 'expand_more';
+                }
+            });
+            
+            // Toggle current card
+            if (isExpanded) {
+                card.classList.remove('expanded');
+                expandText.textContent = 'Show Details';
+                expandIcon.textContent = 'expand_more';
+                
+                // Smooth scroll to keep card in view
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                card.classList.add('expanded');
+                expandText.textContent = 'Hide Details';
+                expandIcon.textContent = 'expand_less';
+                
+                // Smooth scroll to show expanded content
+                setTimeout(() => {
+                    const cardRect = card.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (cardRect.bottom > windowHeight) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 400);
+            }
+        });
+    }
+});
+
+// Add hover effects to project cards
+document.querySelectorAll('.project-card:not(.project-placeholder)').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        if (!this.classList.contains('expanded')) {
+            this.style.transform = 'translateY(-6px) scale(1.02)';
+        }
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        if (!this.classList.contains('expanded')) {
+            this.style.transform = 'translateY(0) scale(1)';
+        }
+    });
+});
+
+// Enhanced button animations
+document.querySelectorAll('.btn-expand, .btn-github').forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
 });
 
 // Add scroll effect to navigation bar
