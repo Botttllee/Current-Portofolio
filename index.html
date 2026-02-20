@@ -296,7 +296,113 @@
                     </div>
                 </div>
 
-                <!-- Placeholder for Project 2 -->
+                <!-- Project 2: BI Exchange Currency AutoUpdate -->
+                <div class="project-card" data-project="2">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <span class="material-icons-outlined">currency_exchange</span>
+                        </div>
+                        <h3 class="project-title">BI Exchange Currency AutoUpdate</h3>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-badge">Odoo 15</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">XML</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                    
+                    <p class="project-summary">
+                        Automated currency exchange update module that retrieves the latest BI rates and keeps Odoo currency values synchronized every day.
+                    </p>
+                    
+                    <div class="project-details">
+                        <p class="project-context">
+                            Built using the Bank Indonesia API endpoint <code>https://www.bi.go.id/biwebservice/wskursbi.asmx/getSubKursLokal4</code> to fetch the latest exchange rates, then integrated with scheduled cron automation so rates are updated daily without manual intervention.
+                        </p>
+                        
+                        <h4 class="project-features-title">Key Features:</h4>
+                        <ul class="project-features">
+                            <li>Direct integration with BI Web Service API to retrieve current local exchange rates</li>
+                            <li>Automatic parsing, mapping, and normalization of API response into Odoo currency records</li>
+                            <li>Daily cron scheduler for unattended rate updates at predefined times</li>
+                            <li>Fallback handling and validation to avoid invalid rate imports</li>
+                            <li>Update logs for monitoring synchronization status and troubleshooting</li>
+                            <li>Reduced manual update errors in finance and accounting processes</li>
+                        </ul>
+                        
+                        <div class="project-modules">
+                            <strong>Modules:</strong> BI API Integration, Currency Rate Sync, Cron Automation, Validation & Logging
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="btn-expand">
+                            <span class="expand-text">Show Details</span>
+                            <span class="material-icons-outlined expand-icon">expand_more</span>
+                        </button>
+                        <a href="https://github.com/Botttllee?tab=repositories" target="_blank" class="btn-github">
+                            <span class="material-icons-outlined">code</span>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Padel -->
+                <div class="project-card" data-project="3">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <span class="material-icons-outlined">sports_tennis</span>
+                        </div>
+                        <h3 class="project-title">Padel</h3>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-badge">Odoo 18</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">XML</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                    
+                    <p class="project-summary">
+                        End-to-end platform for padel business operations, covering booking, scheduling, membership, and transaction workflows.
+                    </p>
+                    
+                    <div class="project-details">
+                        <p class="project-context">
+                            Developed while working at PT Maju Express Indonesia when the company initiated a new padel business line but had no platform to handle operational and commercial requirements in one system.
+                        </p>
+                        
+                        <h4 class="project-features-title">Key Features:</h4>
+                        <ul class="project-features">
+                            <li>Court booking and session scheduling workflows with conflict validation</li>
+                            <li>Membership, package, and promo management for recurring customers</li>
+                            <li>Integrated sales and payment flow for online and onsite transactions</li>
+                            <li>Customer data and activity tracking to support retention strategy</li>
+                            <li>Operational dashboards for utilization, revenue, and booking trends</li>
+                            <li>Role-based access and process controls for reliable daily operations</li>
+                        </ul>
+                        
+                        <div class="project-modules">
+                            <strong>Modules:</strong> Booking Management, Membership, Sales, Payment, CRM, Reporting Dashboard
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="btn-expand">
+                            <span class="expand-text">Show Details</span>
+                            <span class="material-icons-outlined expand-icon">expand_more</span>
+                        </button>
+                        <a href="https://github.com/Botttllee?tab=repositories" target="_blank" class="btn-github">
+                            <span class="material-icons-outlined">code</span>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+                </div>                
+
+                <!-- Placeholder for Project 3 -->
                 <div class="project-card project-placeholder">
                     <div class="project-header">
                         <div class="project-icon">
@@ -507,3 +613,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
