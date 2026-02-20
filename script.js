@@ -252,6 +252,8 @@ function typeWriter(element, text, speed = 100) {
 // }
 
 // Console message for visitors
-console.log('%c👋 Hello there!', 'font-size: 20px; font-weight: bold; color: #10b981;');
+console.log('%c👋 Hello there!', 'font-size: 20px; font-weight: bold; color: #b08968;');
 console.log('%cThanks for checking out my portfolio!', 'font-size: 14px; color: #475569;');
 console.log('%cFeel free to reach out: hendrikrikuto@gmail.com', 'font-size: 12px; color: #94a3b8;');
+
+
