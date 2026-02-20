@@ -1428,3 +1428,219 @@ body {
         padding: 1.5rem 1rem;
     }
 }
+
+/* ===================================
+   EXPERIMENTAL ART DIRECTION
+   =================================== */
+
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+main {
+    position: relative;
+    overflow: clip;
+}
+
+main::before,
+main::after {
+    content: "";
+    position: absolute;
+    width: 32rem;
+    height: 32rem;
+    border-radius: 9999px;
+    pointer-events: none;
+    filter: blur(6px);
+    z-index: -1;
+}
+
+main::before {
+    top: -12rem;
+    right: -12rem;
+    background: radial-gradient(circle, rgba(176, 137, 104, 0.26) 0%, rgba(176, 137, 104, 0) 72%);
+}
+
+main::after {
+    bottom: 8rem;
+    left: -14rem;
+    background: radial-gradient(circle, rgba(143, 106, 79, 0.24) 0%, rgba(143, 106, 79, 0) 72%);
+}
+
+.dark main::before {
+    background: radial-gradient(circle, rgba(176, 137, 104, 0.2) 0%, rgba(176, 137, 104, 0) 72%);
+}
+
+.dark main::after {
+    background: radial-gradient(circle, rgba(143, 106, 79, 0.18) 0%, rgba(143, 106, 79, 0) 72%);
+}
+
+.section-title,
+.section-title-small,
+.hero-title,
+.timeline-title,
+.project-title,
+.skills-title,
+.engagement-title,
+.card-title {
+    font-family: "Sora", "Outfit", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.section-header {
+    position: relative;
+}
+
+.section-header::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -1rem;
+    width: 5.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(176, 137, 104, 0), rgba(176, 137, 104, 0.65), rgba(176, 137, 104, 0));
+}
+
+.hero-title {
+    text-wrap: balance;
+    text-shadow: 0 2px 14px rgba(63, 50, 40, 0.12);
+}
+
+.hero-description {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content {
+    backdrop-filter: blur(4px);
+}
+
+.timeline-item {
+    perspective: 1000px;
+}
+
+.timeline-content {
+    transform-origin: center;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-4px) rotateX(1.2deg);
+}
+
+.timeline-marker.active {
+    box-shadow: 0 0 0 0 rgba(176, 137, 104, 0.55);
+    animation: warm-pulse 2.8s ease-out infinite;
+}
+
+.project-card,
+.card,
+.engagement-card,
+.cert-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before,
+.card::before,
+.engagement-card::before,
+.cert-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.24) 50%, rgba(255, 255, 255, 0) 65%);
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+}
+
+.project-card:hover::before,
+.card:hover::before,
+.engagement-card:hover::before,
+.cert-item:hover::before {
+    transform: translateX(130%);
+}
+
+.btn-contact,
+.btn-cv,
+.btn-github,
+.btn-expand {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-contact::after,
+.btn-cv::after,
+.btn-github::after,
+.btn-expand::after {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -20%;
+    width: 42%;
+    height: 320%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+    transform: rotate(22deg);
+    transition: left 0.7s ease;
+}
+
+.btn-contact:hover::after,
+.btn-cv:hover::after,
+.btn-github:hover::after,
+.btn-expand:hover::after {
+    left: 120%;
+}
+
+.skills-card {
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.skills-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 0.55px, transparent 0.55px);
+    background-size: 10px 10px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.footer-container {
+    position: relative;
+}
+
+.footer-container::before {
+    content: "";
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(80vw, 700px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(203, 184, 166, 0), rgba(203, 184, 166, 0.55), rgba(203, 184, 166, 0));
+}
+
+@keyframes warm-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(176, 137, 104, 0.55);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(176, 137, 104, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(176, 137, 104, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    main::before,
+    main::after {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .timeline-item:hover .timeline-content {
+        transform: none;
+    }
+}
